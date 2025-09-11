@@ -1,0 +1,80 @@
+---
+version: "2.0"
+name: ai-video-generator
+
+services:
+  ai-video-backend:
+    image: shiveren/ai-video-generator:latest
+    env:
+      # ---- Server ----
+      - PORT=8000
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+      - FLASK_APP=app.py
+
+      # ---- AI API Keys ----
+      - GEMINI_API_KEY=AIzaSyCcwuVAN6JVyOSX-LUcuCD9EHNVHxP6F38
+      - ELEVENLABS_API_KEY_1=sk_e1d72fe34380a2d8149aeb965032985aad2e1c5b715fb26e
+      - ELEVENLABS_API_KEY_2=sk_29bbdf2113b0f03c94544b473fe7356612cb2bdf9bff636c
+      - ELEVENLABS_API_KEY_3=sk_6103aed96de8ea8869f3f5d5ddf03c06989359d723ad44f0
+
+      # ---- Cloudflare R2 ----
+      - CLOUDFLARE_R2_ACCOUNT_ID=5e794ca2e8862a9aa01f71d22a4bc140
+      - CLOUDFLARE_R2_ACCESS_KEY_ID=9fc741b3e894d3962d5cd08def2ca8f4
+      - CLOUDFLARE_R2_SECRET_ACCESS_KEY=097b6e421fd64ba84868bdd77d9a788f78ca790ee2753a0bba341f518d293bc9
+      - CLOUDFLARE_R2_BUCKET_NAME=ai-video-generator
+      - CLOUDFLARE_R2_PUBLIC_URL=https://pub-03ff283e17364a388c9937161449a2c4.r2.dev
+
+      # ---- Tuning ----
+      - WORKER_TIMEOUT=600
+      - WORKER_CONNECTIONS=750
+      - MAX_CONCURRENT_JOBS=2
+      - CLEANUP_TEMP_FILES=true
+      - MAX_STORAGE_MB=6000
+      - CLEANUP_INTERVAL_HOURS=1
+      - MAX_RESULT_FOLDERS=3
+      - LOG_LEVEL=INFO
+      - ENABLE_METRICS=true
+      - HEALTH_CHECK_INTERVAL=30
+
+    expose:
+      - port: 8000
+        as: 80
+        to:
+          - global: true
+        accept:
+          - api.yourdomain.com
+
+    params:
+      storage:
+        data:
+          mount: /app/data
+          readOnly: false
+
+profiles:
+  compute:
+    ai-video-service:
+      resources:
+        cpu:
+          units: "3"
+        memory:
+          size: 4Gi
+        storage:
+          - name: data
+            size: 10Gi
+            attributes:
+              persistent: true
+              class: beta2
+
+  placement:
+    akash-network:
+      pricing:
+        ai-video-service:
+          denom: uakt
+          amount: 1200   # raise if you get no bids (try 1800–2500)
+
+deployment:
+  ai-video-backend:
+    akash-network:
+      profile: ai-video-service
+      count: 1
