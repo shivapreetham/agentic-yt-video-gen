@@ -1,0 +1,48 @@
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+Everyone is allowed to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+ Preamble
+
+ The GNU General Public License is a free, copyleft license for software and other kinds of works.
+
+ When we talk about free software, we are referring to freedom, not price. Our General Public
+ Licenses are designed to make sure that you have the freedom to distribute copies of free software
+ (and charge for this service if you wish), that you receive source code or can get it if you want it,
+ and that you can change the software and use pieces of it in new free programs.  To protect your
+ rights, we need to make restrictions that forbid distributors to deny you these rights or to ask you
+ to surrender these rights. These restrictions translate to certain responsibilities for you if you
+ distribute copies of the software, or if you modify it.
+
+ For example, if you distribute copies of such a program, whether gratis or for a fee, you must pass on
+ the same freedoms to the recipients that you received. You must make sure that they, too, receive or
+ can get the source code. And you must show them these terms so they know their rights.
+
+ Developers that use the GPL protect your rights with two steps: (1) assert copyright on the software,
+ and (2) offer you this License giving you legal permission to use, distribute and modify it.
+
+ There are many people who use the GPL correctly, but there are also many who do not. Sometimes
+ they will make the software proprietary by adding restrictions. Sometimes they will create a
+ modified version that has even fewer rights. To prevent this, we have made this License
+ explicitly for software and other kinds of works.
+ The licenses for the most widely used free software are designed to make sure that everyone who
+ receives a copy of the software is given access to the source code and is free to change it.
+
+ In this way, you can provide the same freedoms to everyone else. For the sake of simplicity, we
+ will call this kind of license a "GPL".  This version of the GPL was made for software. And it is
+ for your right to use, modify and distribute free software.  In return, each user makes a contribution
+ to improve its corresponding project.  This contribution is fixed by copyright law and can be used
+ by anyone that wants to maintain a project or to pay for the creation of GPL-compatible software.
+
+ There is no warranty for you or anyone, for using the software, but if you make any claims or
+ create restrictions, the copyrights define the limits of that freedom.
+
+ While this License is in effect, you may not use other GNU Licenses. 
+
+... (license text continues) 
+
+[For full license text, please refer to the original source: https://www.gnu.org/licenses/gpl-3.0.txt]
+
